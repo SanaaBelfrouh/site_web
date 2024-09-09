@@ -1,0 +1,178 @@
+/* Container styling */
+.container {
+  max-width: 800px;
+  margin: 90px auto;
+  padding: 20px;
+  background-color: #2d78a3; /* Background color to match app theme */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading styling */
+.container h2 {
+  font-size: 1.8rem;
+  color: #f1951f; /* Dark color for text */
+  margin-bottom: 20px;
+  text-align: center; /* Center-align heading */
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Label styling */
+.form-group label {
+  display: block;
+  margin-bottom: 10px; /* Increased space below labels */
+  font-weight: bold;
+  color: #f1951f;
+  font-size: 1.5rem; /* Increased font size */
+}
+
+/* Input and Select styling */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #2276a5;
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box;
+  font-size: 1rem;
+  background-color: #e8f0fe; /* Light blue background for inputs */
+  color: #2276a5; /* Dark blue text color */
+}
+
+/* Textarea styling */
+.form-control[type="text"],
+.form-control[type="file"] {
+  height: auto;
+}
+
+/* Button styling */
+.btn-primary {
+  background: #f1951f;
+  color: #2276a5;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Center the button */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background: #ca7c16;
+  color: #2276a5;
+}
+
+/* Radio buttons checklist styling */
+.form-group div {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap if there's not enough space */
+  gap: 15px;
+  align-items: center;
+}
+
+/* Radio button container */
+.radio-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px; /* Space for custom checkmark */
+  cursor: pointer;
+  font-size: 1rem;
+  color: #f1951f;
+}
+
+/* Hide default radio button */
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Custom checkmark styling */
+.radio-container input[type="radio"]:checked ~ .custom-checkmark {
+  background-color: #f1951f; /* Color for checked state */
+  border-color: #f1951f; /* Border color for checked state */
+}
+
+.custom-checkmark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  border: 2px solid #2276a5; /* Border color for default state */
+  border-radius: 50%; /* Round shape for radio button */
+  background-color: #fff; /* Background color for default state */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-checkmark::after {
+  content: "";
+  display: none;
+}
+
+input[type="radio"]:checked ~ .custom-checkmark::after {
+  content: "✔"; /* Checkmark symbol */
+  color: #2267a5; /* Color of the checkmark */
+  font-size: 14px; /* Adjust size of the checkmark */
+}
+
+.radio-label {
+  margin-left: 5px;
+}
+
+/* File input styling */
+input[type="file"] {
+  padding: 0;
+  border: none;
+  background: #f1f1f1; /* Light background for file input */
+}
+
+/* Success message styling */
+.success-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4caf50; /* Green background for success */
+  color: #ffffff; /* White text color */
+  text-align: center; /* Center-align text */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    box-shadow: none; /* Remove shadow for small screens */
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .btn-primary {
+    width: 100%; /* Full width button on small screens */
+  }
+
+  .form-group div {
+    flex-direction: column; /* Stack items vertically on small screens */
+    gap: 10px;
+  }
+
+  .radio-container {
+    padding-left: 25px; /* Adjust padding for small screens */
+  }
+}

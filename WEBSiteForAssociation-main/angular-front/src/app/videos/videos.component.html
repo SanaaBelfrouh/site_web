@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="video-container">
+    <!-- Button to toggle the domain selection overlay -->
+    <button (click)="toggleDomains()" class="toggle-button-overlay btn-primary">
+      Choose a video
+    </button>
+
+    <!-- Video display section -->
+    <div class="video-wrapper">
+      <!-- Display the selected video if one is selected -->
+      <iframe
+        *ngIf="videoUrl"
+        width="560"
+        height="315"
+        [src]="videoUrl"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <div *ngIf="!selectedName" class="placeholder">
+        Select a video to play
+      </div>
+    </div>
+
+    <!-- Subtitle/Definition display section -->
+    <div *ngIf="selectedName" class="subtitle">
+      {{ selectedName.definition }}
+    </div>
+
+    <!-- Overlay for selecting domains and videos -->
+    <div *ngIf="showDomains" class="overlay">
+      <div class="domains-container">
+        <!-- List of domains -->
+        <div class="domains-list">
+          <div *ngFor="let domain of domains">
+            <p (click)="selectDomain(domain)" class="domain-button">
+              {{ domain.name }}
+            </p>
+          </div>
+        </div>
+
+        <!-- List of video names within the selected domain -->
+        <div class="names-list" *ngIf="selectedDomain">
+          <ul>
+            <li *ngFor="let name of selectedDomain.videos" (click)="selectName(name)">
+              {{ name.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

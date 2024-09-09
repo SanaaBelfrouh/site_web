@@ -1,0 +1,63 @@
+<!-- app.component.html -->
+
+<!-- Desktop Navigation -->
+<nav id="desktop-nav">
+  <div class="logo">𝑀𝒮𝐿-𝒯𝐸𝑅𝒥𝒜𝑀𝒜</div>
+  <div>
+    <ul class="nav-links">
+      <li><a class="nav-links" href="#service">𝚂𝚎𝚛𝚟𝚒𝚌𝚎</a></li>
+      <li><a class="nav-links" href="#about">𝙰𝚋𝚘𝚞𝚝</a></li>
+      <li><a class="nav-links" href="#dictionnaire">𝙳𝚒𝚌𝚝𝚒𝚘𝚗𝚗𝚊𝚒𝚛𝚎</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<nav id="hamburger-nav">
+  <div class="logo">𝑀𝒮𝐿-𝒯𝐸𝑅𝒥𝒜𝑀𝒜</div>
+  <div class="hamburger-menu" (click)="toggleMenu()">
+    <div class="hamburger-icon" [class.open]="menuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="menu-links" [class.open]="menuOpen">
+      <li><a href="#service" (click)="closeMenu()">𝚂𝚎𝚛𝚟𝚒𝚌𝚎</a></li>
+      <li><a href="#about" (click)="closeMenu()">𝙰𝚋𝚘𝚞𝚝</a></li>
+      <li><a href="#dictionnaire" (click)="closeMenu()">𝙳𝚒𝚌𝚝𝚒𝚘𝚗𝚗𝚊𝚒𝚛𝚎</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Content Sections -->
+<main>
+  <div class="banner">
+    <div class="banner-content">
+      <img src="assets/M.gif" alt="Profile Picture" class="profile-picture">
+      <div class="content">
+        <h1>𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑴𝑺𝑳-𝑻𝑬𝑹𝑱𝑨𝑴𝑨</h1>
+        <p>𝑨 𝒔𝒐𝒍𝒖𝒕𝒊𝒐𝒏 𝒅𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒅 𝒃𝒚 𝑴𝑰𝑨𝑨𝑫 𝒔𝒕𝒖𝒅𝒆𝒏𝒕𝒔 𝒕𝒐 𝒂𝒔𝒔𝒊𝒔𝒕 𝒖𝒔𝒆𝒓𝒔 𝒐𝒇 𝑴𝑺𝑳.</p>
+        <button class="banner-btn"><a class="banner-link" href="#service">Let's try it</a></button>
+      </div>
+    </div>
+  </div>
+  <section id="service" class="services">
+    <!--<app-translation-video></app-translation-video> {% endcomment %}-->
+    <app-avatar-service></app-avatar-service>
+  </section>
+ <!-- <section id="dictionnaire">
+    <app-videos></app-videos>
+    </section> 
+  <section id="add_video">
+      <app-add-video></app-add-video>
+    </section>
+  <section id="about">
+    <app-about></app-about>
+  </section>
+  <section id="footer">
+    <app-footer></app-footer>
+  </section>
+  
+</main>

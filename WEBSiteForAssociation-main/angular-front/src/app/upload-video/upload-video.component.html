@@ -1,0 +1,21 @@
+<section id="upload-video">
+  <main class="upload-video">
+    <div class="content">
+      <h1 class="title">{{ title }}</h1>
+      <form>
+        <div class="file-upload">
+          <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="video/*" class="file-input">
+          <label for="fileInput" class="file-upload-label">Choose a video</label>
+        </div>
+      </form>
+      <!-- Video preview section -->
+      <div *ngIf="videoUrl" class="video-preview">
+        <video [src]="videoUrl" controls width="100%" height="auto"></video>
+      </div>
+      <button type="button" (click)="onPredictClicked()" class="btn btn-primary btn-block btn-large" style="margin-top: 10px;" *ngIf="selectedFile">Predict</button>
+      <div *ngIf="predictionText" class="prediction-container" style="margin-top: 10px;">
+        <p>{{ predictionText }}</p>
+      </div>
+    </div>
+  </main>
+</section>

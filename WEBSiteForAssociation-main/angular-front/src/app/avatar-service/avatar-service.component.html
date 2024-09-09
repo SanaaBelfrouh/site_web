@@ -1,0 +1,29 @@
+<main class="avatar-service">
+  <div class="content">
+    <div id="avatarContainer" style="margin-top: 5px;">
+      <div id="searchBarContainer">
+        <input id="searchBar" type="text" placeholder="Enter phrase" [(ngModel)]="searchText">
+        <button id="searchButton" (click)="performSearch()">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div id="recordingControls">
+        <button class="start-button" (click)="startRecording()">
+          <i class="fas fa-play"></i> Start Recording
+        </button>
+        <button class="stop-button" (click)="stopRecording()">
+          <i class="fas fa-stop"></i> Stop Recording
+        </button>
+        <div id="audioUploadContainer">
+          <label for="audioUpload" class="upload-button">
+            <i class="fas fa-upload"></i> Upload Audio
+          </label>
+          <input id="audioUpload" type="file" (change)="onAudioUpload($event)" style="display: none;">
+        </div>
+        <audio *ngIf="audioUrl" [src]="audioUrl" controls></audio>
+      </div>
+     
+      <div id="renderCanvasContainer" style="width: 100%; height: 550px; border: 1px solid #ccc;"></div>
+    </div>
+  </div>
+</main>

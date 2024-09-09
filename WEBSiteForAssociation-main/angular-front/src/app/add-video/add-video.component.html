@@ -1,0 +1,73 @@
+<div class="container">
+    <h2>Hello admin! </h2>
+    <form [formGroup]="addVideoForm" (ngSubmit)="submitForm()">
+      
+      <div class="form-group">
+        <label for="domain">Domain</label>
+        <div>
+            <label class="radio-container">
+              <input type="radio" id="existingDomain" name="domainOption" (click)="toggleNewDomain()" [checked]="!creatingNewDomain">
+              <span class="custom-checkmark"></span>
+              <span class="radio-label">Select Existing Domain</span>
+            </label>
+        
+            <label class="radio-container">
+              <input type="radio" id="newDomain" name="domainOption" (click)="toggleNewDomain()" [checked]="creatingNewDomain">
+              <span class="custom-checkmark"></span>
+              <span class="radio-label">Create New Domain</span>
+            </label>
+          </div>
+      </div>
+  
+      <div class="form-group" *ngIf="!creatingNewDomain">
+        <label for="domainId">Select Domain</label>
+        <select id="domainId" formControlName="domainId" class="form-control">
+          <option value="" disabled>Select a domain</option>
+          <option *ngFor="let domain of domains" [value]="domain._id">{{ domain.name }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group" *ngIf="creatingNewDomain">
+        <label for="newDomainName">New Domain Name</label>
+        <input type="text" id="newDomainName" formControlName="newDomainName" class="form-control" placeholder="Enter new domain name">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Video Name</label>
+        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter Video Name">
+      </div>
+      
+      <div class="form-group">
+        <label for="definition">Definition</label>
+        <textarea id="definition" formControlName="definition" class="form-control" placeholder="Enter Video Definition"></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="type">Video Type</label>
+        <select id="type" formControlName="type" class="form-control">
+          <option value="drive_link">Google Drive Link</option>
+          <option value="mp4">MP4 File</option>
+        </select>
+      </div>
+      
+      <div class="form-group" *ngIf="videoType === 'drive_link'">
+        <label for="link">Google Drive Link</label>
+        <input type="text" id="link" formControlName="link" class="form-control" placeholder="Enter Google Drive Link">
+      </div>
+      
+      <div class="form-group" *ngIf="videoType === 'mp4'">
+        <label for="file">Upload MP4 File</label>
+        <input type="file" id="file" (change)="onFileChange($event)" class="form-control">
+      </div>
+      
+      <div class="button-container">
+        <button type="submit" class="btn btn-primary" [disabled]="addVideoForm.invalid">Add Video</button>
+      </div>
+      
+    </form>
+     <!-- Success message -->
+  <div *ngIf="successMessage" class="success-message">
+    Video added successfully!
+  </div>
+  </div>
+  

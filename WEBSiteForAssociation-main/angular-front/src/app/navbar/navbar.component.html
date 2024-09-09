@@ -1,0 +1,94 @@
+<!-- Add this to your index.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Desktop Navigation -->
+<nav id="desktop-nav">
+  <div class="logo">
+    <img src="assets/ll.png" alt="MSL-TERJAMA Logo">
+  </div>
+  <ul class="nav-links">
+   
+    <li>
+      <a class="nav-link" href="#" (click)="showVideos()">
+        <i class="fas fa-home"></i> Dictionnaire
+      </a>
+    </li>
+    <li>
+      <a class="nav-link" href="#service">Service</a>
+    </li>
+    <li>
+      <a class="nav-link" href="#about">About</a>
+    </li>
+    <li>
+      <a class="nav-link" href="#" (click)="toggleLogin()">
+        <i class="fas fa-sign-in-alt"></i> Add-video
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="hamburger-menu" (click)="toggleMenu()">
+  <div class="hamburger-icon" [class.open]="menuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<ul class="menu-links" [class.open]="menuOpen">
+  
+  <li>
+    <a class="nav-link" href="#" (click)="showVideos(); closeMenu()">
+      <i class="fas fa-home"></i> Dictionnaire
+    </a>
+  </li>
+  <li>
+    <a class="nav-link" href="#service">Service</a>
+  </li>
+  <li>
+    <a class="nav-link" href="#about">About</a>
+  </li>
+  <li>
+    <a class="nav-link" href="#" (click)="toggleLogin(); closeMenu()">
+      <i class="fas fa-sign-in-alt"></i>Add-video
+    </a>
+  </li>
+</ul>
+
+<!-- Banner Section -->
+<div class="banner" *ngIf="!loginMode">
+  <div class="banner-image">
+    <img src="assets/banner.PNG" alt="Banner Image">
+  </div>
+  <div class="banner-content">
+    <h1>𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑴𝑺𝑳-𝑻𝑬𝑹𝑱𝑨𝑴𝑨</h1>
+        <p>𝑨 𝒔𝒐𝒍𝒖𝒕𝒊𝒐𝒏 𝒅𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒅 𝒃𝒚 𝑴𝑰𝑨𝑨𝑫 𝒔𝒕𝒖𝒅𝒆𝒏𝒕𝒔 𝒕𝒐 𝒂𝒔𝒔𝒊𝒔𝒕 𝒖𝒔𝒆𝒓𝒔 𝒐𝒇 𝑴𝑺𝑳.</p>
+        <button class="banner-btn"><a class="banner-link" href="#videos">LET'S TRY IT</a></button>
+  </div>
+</div>
+
+
+<!-- Main Content Sections -->
+<main>
+  <div *ngIf="!loginMode">
+    <div class="videos" id="videos">
+      <app-videos></app-videos>
+    </div>
+    <section id="service" class="services">
+    <app-avatar-service></app-avatar-service>
+    <app-translation-video></app-translation-video> 
+
+  </section>
+  
+
+  <section id="about">
+    <app-about></app-about>
+  </section>
+  <section id="footer">
+    <app-footer></app-footer>
+  </section>
+  </div>
+  <div *ngIf="loginMode">
+    <app-login></app-login>
+  </div>
+</main>

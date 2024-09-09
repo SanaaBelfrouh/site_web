@@ -1,0 +1,104 @@
+.upload-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6F6F6;
+  padding: 10px; /* Adjust padding for mobile screens */
+  width: 100%; /* Make width responsive */
+  max-width: 450px; /* Limit max-width for larger screens */
+  margin: auto; /* Center the component */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #F7F7F7;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box; /* Include padding and border in total width */
+  height: auto; /* Allow height to adjust automatically */
+}
+
+.button-group {
+  display: flex;
+  justify-content: center; /* Align buttons horizontally */
+  gap: 10px; /* Add space between buttons */
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background: #7d7d7d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem; /* Adjust padding for mobile */
+  font-size: 0.875rem; /* Adjust font size for mobile */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  flex: 1; /* Make buttons take equal space */
+  min-width: 150px;
+}
+
+.btn-primary:hover {
+  background: #2e2d2d;
+  color: rgb(237, 229, 229);
+}
+
+.video-container {
+  width: 100%;
+  max-width: 100%; /* Allow video container to use full width */
+  height: auto;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+video {
+  width: 100%; /* Ensure video scales to fit within its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: rounded corners if desired */
+}
+
+.recording-indicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.prediction-container {
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.prediction-container p {
+  font-size: 1rem; /* Adjust font size for mobile */
+  color: #7d7d7d;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .btn-primary {
+    font-size: 0.75rem; /* Further reduce font size on very small screens */
+    padding: 0.5rem 0.3rem;
+    min-width: 100px;
+  }
+
+  .video-container {
+    max-width: 100%;
+  }
+
+  .prediction-container p {
+    font-size: 0.875rem; /* Adjust font size for mobile */
+  }
+}

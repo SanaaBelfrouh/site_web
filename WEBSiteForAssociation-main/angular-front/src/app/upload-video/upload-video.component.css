@@ -1,0 +1,131 @@
+.upload-video {
+  display: flex;
+  background-color: #F6F6F6;
+  flex-direction: column; /* Change to column for better stacking on mobile */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* Make the width responsive */
+  max-width: 450px; /* Limit max-width for larger screens */
+  height: auto; /* Allow height to adjust automatically */
+  padding: 10px; /* Adjust padding for mobile */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #F7F7F7;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.file-upload {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px; /* Add margin for spacing */
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-upload-label {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #7d7d7d;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.875rem; /* Adjust font size for mobile */
+  transition: 0.3s ease;
+}
+
+.file-upload-label:hover {
+  background: #2e2d2d;
+}
+
+.btn-primary {
+  background: #7d7d7d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.875rem; /* Adjust font size for mobile */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  margin-top: 10px; /* Ensure margin is applied */
+  width: 100%; /* Make button full width on mobile */
+}
+
+.btn-primary:hover {
+  background: #2e2d2d;
+  color: rgb(237, 229, 229);
+}
+
+.video-preview {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 100%; /* Allow video preview to use full width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+video {
+  width: 100%; /* Ensure video scales to fit within its container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 200px; /* Adjust max-height for better mobile fit */
+}
+
+.prediction-container {
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.prediction-container p {
+  font-size: 1rem; /* Adjust font size for mobile */
+  color: #7d7d7d; /* Match the text color of the buttons */
+  font-weight: bold; /* Optional: make the text bold */
+  margin: 0; /* Remove default margin */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .upload-video {
+    width: 100%;
+    max-width: none; /* Remove max-width restriction */
+    padding: 10px;
+  }
+
+  .btn-primary {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .file-upload-label {
+    font-size: 0.875rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .prediction-container p {
+    font-size: 0.875rem; /* Adjust font size for mobile */
+  }
+}

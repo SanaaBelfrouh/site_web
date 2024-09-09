@@ -1,0 +1,19 @@
+.footer {
+    background-color: #2276a5;
+    padding: 1rem;
+    text-align: center;
+    max-height: 50px;
+    color: #f1951f;
+  }
+
+  .footer a {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Inherit the text color from the parent element */
+  }
+  
+  /* Optional: If you want to remove hover styles as well */
+  .footer a:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+    color: inherit; /* Keep the same color on hover */
+  }
+  

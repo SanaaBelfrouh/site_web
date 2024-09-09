@@ -1,0 +1,275 @@
+/* Apply a background gradient to the entire page */
+body {
+  background: linear-gradient(120deg, #00509e, #f57c00);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Optional: Improve font readability */
+  color: #ffffff; /* Ensure text is readable against the background */
+}
+
+.container {
+  text-align: center;
+  padding: 20px; /* Added padding for better layout */
+}
+
+.video-container {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Maintain full width */
+  height: 100%; /* Maintain full height */
+  max-width: 1600px; /* Increased maximum width */
+  margin: 20px auto; /* Increased margin for better spacing */
+  background-color: #000; /* Background color for the video container */
+  border-radius: 15px; /* Rounded corners for the video container */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Enhanced shadow effect */
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 15px; /* Rounded corners for the video */
+}
+
+.video-wrapper iframe,
+.video-wrapper .placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px; /* Rounded corners for the video */
+}
+
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* Text color */
+  background: #00509e; /* Background color updated to blue */
+  font-size: 1.8rem; /* Increased font size */
+  text-align: center;
+}
+
+.toggle-button-overlay {
+  position: absolute;
+  top: 15px; /* Adjusted top position */
+  left: 15px; /* Adjusted left position */
+  z-index: 10;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 12px; /* Increased padding */
+  background-color: #f57c00; /* Background color updated to orange */
+  color: #ffffff; /* Text color */
+  font-size: 1rem; /* Increased font size */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.toggle-button-overlay:hover {
+  background: #ff9800; /* Hover background color to a lighter orange */
+  color: #ffffff; /* Maintain text color */
+}
+
+.definition-overlay {
+  position: absolute;
+  bottom: 50px; /* Adjusted position */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff; /* Text color */
+  padding: 10px 15px; /* Increased padding */
+  border-radius: 6px; /* Increased border radius */
+  z-index: 50;
+  font-style: italic;
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-align: center;
+  display: inline-block; /* Adjust the width to fit the content */
+}
+
+.overlay {
+  position: absolute;
+  top: 90px; /* Adjusted top position */
+  left: 25px; /* Adjusted left position */
+  right: 25px; /* Adjusted right position */
+  display: flex;
+  flex-direction: row;
+  color: #ffffff; /* Text color */
+  padding: 15px; /* Increased padding */
+  box-sizing: border-box;
+  gap: 25px; /* Increased gap */
+}
+
+.domains-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px; /* Increased gap */
+}
+
+.domains-list,
+.names-list {
+  flex: 1;
+  min-width: 180px; /* Increased minimum width */
+  direction: rtl;
+  text-align: right;
+  overflow-y: auto;
+  max-height: calc(100vh - 250px); /* Adjusted max height */
+}
+
+.domains-list {
+  margin-right: 25px; /* Increased margin */
+}
+
+.names-list {
+  max-width: 350px; /* Increased maximum width */
+}
+
+.names-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.names-list li {
+  margin: 8px 0; /* Increased margin */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer; /* Hand pointer */
+}
+
+.domain-button {
+  margin: 8px 0; /* Increased margin */
+  cursor: pointer;
+  background-color: #f57c00; /* Background color updated to orange */
+  color: #ffffff; /* Text color */
+  padding: 8px; /* Increased padding */
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.domain-button:hover {
+  background-color: #ff9800; /* Hover color to a lighter orange */
+}
+
+.btn-primary {
+  background-color: #00509e; /* Background color updated to blue */
+  color: #ffffff; /* Text color */
+  border: none;
+  padding: 8px 12px; /* Increased padding */
+  font-size: 0.85rem; /* Increased font size */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  margin-top: 15px; /* Increased margin */
+}
+
+.btn-primary:hover {
+  background-color: #0d6efd; /* Hover color to a lighter blue */
+  color: #ffffff; /* Maintain text color */
+}
+
+/* Custom scrollbar styles */
+.domains-list::-webkit-scrollbar,
+.names-list::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.domains-list::-webkit-scrollbar-track,
+.names-list::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.domains-list::-webkit-scrollbar-thumb,
+.names-list::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 3px solid #f1f1f1; /* Border around the thumb */
+}
+
+.domains-list::-webkit-scrollbar-thumb:hover,
+.names-list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb when hovered */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .overlay {
+    flex-direction: column;
+    align-items: center;
+    top: 30px; /* Adjusted top position */
+  }
+
+  .domains-container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 60%; /* Increased width */
+    padding: 0 15px; /* Adjusted padding */
+  }
+
+  .domains-list {
+    max-height: 180px; /* Increased max height */
+    margin-right: 15px; /* Increased margin */
+    width: 35%; /* Adjusted width */
+  }
+
+  .names-list {
+    max-height: 180px; /* Increased max height */
+    width: 65%; /* Adjusted width */
+  }
+
+  .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; /* Text color */
+    background: #00509e; /* Background color updated to blue */
+    font-size: 0.8rem; /* Adjusted font size */
+    text-align: center;
+  }
+
+  .toggle-button-overlay {
+    position: absolute;
+    top: 5px; /* Adjusted top position */
+    left: 15px; /* Adjusted left position */
+    z-index: 10;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px; /* Adjusted padding */
+    background-color: #f57c00; /* Background color updated to orange */
+    color: #ffffff; /* Text color */
+    font-size: 0.7rem; /* Adjusted font size */
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .toggle-button-overlay:hover {
+    background: #ff9800; /* Hover background color to a lighter orange */
+    color: #ffffff; /* Maintain text color */
+  }
+}
+/* CSS for the subtitle/definition */
+.subtitle {
+  position: absolute;
+  bottom: 15px; /* Adjusted position near the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff; /* Text color */
+  padding: 5px 10px; /* Adjusted padding */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1.2rem; /* Font size for the subtitle */
+  max-width: 90%; /* Limit width to avoid overflowing */
+  text-align: center; /* Center the text */
+  z-index: 20; /* Ensure it appears above the video */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis if text overflows */
+}

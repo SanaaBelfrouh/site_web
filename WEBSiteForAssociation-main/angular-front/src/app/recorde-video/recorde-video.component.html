@@ -1,0 +1,32 @@
+<div class="upload-video">
+  <!-- Content Wrapper -->
+  <div class="content">
+    <!-- Top Buttons for Camera Control -->
+    <div class="button-group">
+      <button (click)="startCamera()" class="btn-primary">Open Camera</button>
+      <button (click)="stopCamera()" class="btn-primary">Stop Camera</button>
+    </div>
+
+    <!-- Video Stream in the Center -->
+    <div class="video-container">
+      <video id="video" autoplay></video>
+      <div *ngIf="isRecording" class="recording-indicator"></div>
+    </div>
+
+    <!-- Bottom Buttons for Recording Control -->
+    <div class="button-group" *ngIf="isCameraOn">
+      <button (click)="startRecording()" class="btn-primary">Start Recording</button>
+      <button (click)="stopRecording()" class="btn-primary">Stop Recording</button>
+    </div>
+
+    <!-- Recorded Video and Upload Button -->
+    <div class="button-group" *ngIf="recordedChunks.length > 0 && isCameraOn">
+      <button (click)="uploadVideo()" class="btn-primary">Upload Video</button>
+    </div>
+
+    <!-- Server Prediction -->
+    <div *ngIf="prediction && isCameraOn && !isRecording" class="prediction-container">
+      <p>{{ prediction }}</p>
+    </div>
+  </div>
+</div>
